@@ -3,37 +3,40 @@ import React, { Component } from 'react';
 import './App.css';
 import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 
+import Main from './components/main';
+import { Link } from "react-router-dom";
+
+
 class App extends Component {
   render() {
     return (
-      <div>
 
-      {/* Uses a header that scrolls with the text, rather than staying locked at the top */}
+      
       <div className="demo-big-content">
           <Layout>
-              <Header title="My Portfolio" scroll>
+              <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">MyPortfolio</Link>} scroll>
                   <Navigation>
-                      <a href="#">Contact</a>
-                      <a href="#">Projects</a>
-                      <a href="#">Blog</a>
-                      <a href="#">Resume</a>
+                    <Link to="/resume">Resume</Link>                    
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/blog">Blog</Link>
+                    <Link to="/contact">Contact</Link>
                   </Navigation>
               </Header>
-              <Drawer title="My Portfolio">
+              <Drawer title={<Link style={{textDecoration: 'none', color: 'black'}} to="/">MyPortfolio</Link>}>
                   <Navigation>
-                      <a href="#">Contact</a>
-                      <a href="#">Projects</a>
-                      <a href="#">Blog</a>
-                      <a href="#">Resume</a>
+                    <Link to="/resume">Resume</Link>                    
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/blog">Blog</Link>
+                    <Link to="/contact">Contact</Link>
                   </Navigation>
               </Drawer>
               <Content>
                   <div className="page-content" />
+                  <Main />
               </Content>
           </Layout>
       </div>
 
-      </div>
     );
   }
 }
